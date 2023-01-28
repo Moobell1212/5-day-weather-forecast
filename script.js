@@ -10,13 +10,11 @@ $("#search-button").on("click", function (event) {
     recentCities.push(city);
 
     // add new recentCities array to local storage
-    localStorage.setItem("Past cities", recentCities);
+    localStorage.setItem("pastCities", JSON.stringify(recentCities));
 
     // clear the searchbar
     $("#search-input").val('');
-
     $("#history").empty();
-
     createPastChoices()
 })
 
@@ -24,9 +22,12 @@ function createPastChoices() {
     var history = $("#history");
     var recentSearch = $('<h4>').text("Recent searches:");
     history.append(recentSearch);
-    localStorage.names = JSON.stringify(names);
-    var storedNames = JSON.parse(localStorage.names);
-    console.log(storedNames)
+    var pastCities = JSON.parse(localStorage.getItem("pastCities"));
+    console.log(pastCities)
+    for (let i = 0; i < pastCities.length; i++) {
+        var cityButton = $('<button>').text(pastCities[i])
+        history.append(cityButton)
+    }
 }
 
 //  // loop to make buttons for recently searched cities
