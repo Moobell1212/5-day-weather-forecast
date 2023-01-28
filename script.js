@@ -10,9 +10,10 @@ $("#search-button").on("click", function (event) {
     // add new recentCities array to local storage
     localStorage.setItem("pastCities", JSON.stringify(recentCities));
     // clear the searchbar
-    $("#search-input").val('');
     $("#history").empty();
-    createPastChoices()
+    createPastChoices();
+    getWeather();
+    $("#search-input").val('');
 })
 
 // function for adding past searched cities
@@ -30,5 +31,19 @@ function createPastChoices() {
 }
 
 function getWeather() {
-
+    var APIKey = "39aa227f0467d72e549c51c77a84fa68";
+    var city = $("#search-input").val();
+    var geoInfo = "http://api.openweathermap.org/geo/1.0/direct?q=" + city + "&limit=5&appid=" + APIKey;
+    $.ajax({
+        url: geoInfo,
+        method: "GET"
+      })
+      .then(function(response){
+        console.log(response)
+        var cityLat = response[0].lat
+        // console.log(cityLat)
+        var cityLong = response[0].lon
+        // console.log(cityLong)
+      })
+    
 }
