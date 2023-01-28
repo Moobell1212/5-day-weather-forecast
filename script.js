@@ -14,6 +14,7 @@ $("#search-button").on("click", function (event) {
     createPastChoices();
     getWeather();
     $("#search-input").val('');
+    $("#today").empty();
 })
 
 // function for adding past searched cities
@@ -53,11 +54,24 @@ function getWeather() {
                 method: "GET"
             })
                 .then(function (response) {
-                    console.log(response)
+                    console.log(response);
 
 
+
+
+                    // put onto page
+                    var date = moment().format("Do MMMM YYYY");
+                    $('#today').append($('<h1>').text(city + ": " + date))
+                    // The date
+                    // An icon representation of weather conditions
+                    // The temperature
+                    // The humidity
+                    // The wind speed
                     
+
+                    // add city name
+
                 })
         })
-
+        
 }
