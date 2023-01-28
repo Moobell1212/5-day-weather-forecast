@@ -18,21 +18,17 @@ $("#search-button").on("click", function (event) {
     createPastChoices()
 })
 
+// function for adding past searched cities
 function createPastChoices() {
     var history = $("#history");
-    var recentSearch = $('<h4>').text("Recent searches:");
+    var recentSearch = $('<h4>').text("Recent searches:").css('margin-top', 10);
     history.append(recentSearch);
     var pastCities = JSON.parse(localStorage.getItem("pastCities"));
     console.log(pastCities)
+
+    // buttons added to page for ever past city searched
     for (let i = 0; i < pastCities.length; i++) {
-        var cityButton = $('<button>').text(pastCities[i])
+        var cityButton = $('<button>').text(pastCities[i]).css('width', 290).css('margin-top', 5)
         history.append(cityButton)
     }
 }
-
-//  // loop to make buttons for recently searched cities
-//  for (let i=0 ; i<recentCities.length; i++) {
-//     localStorage.setItem()
-//     var cityButton = $('<button>').text(recentCities[i]);
-//     history.append(cityButton)
-//     }
