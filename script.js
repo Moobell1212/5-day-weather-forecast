@@ -37,13 +37,27 @@ function getWeather() {
     $.ajax({
         url: geoInfo,
         method: "GET"
-      })
-      .then(function(response){
-        console.log(response)
-        var cityLat = response[0].lat
-        // console.log(cityLat)
-        var cityLong = response[0].lon
-        // console.log(cityLong)
-      })
-    
+    })
+        .then(function (response) {
+            console.log(response)
+            var cityLat = response[0].lat;
+            // console.log(cityLat)
+            var cityLong = response[0].lon;
+            // console.log(cityLong)
+            // console.log(cityLat);
+            // console.log(cityLong);
+            var queryURL = "http://api.openweathermap.org/geo/1.0/reverse?lat=" + cityLat + "&lon=" + cityLong + "&limit=5&appid=" + APIKey;
+            // console.log(queryURL)
+            $.ajax({
+                url: queryURL,
+                method: "GET"
+            })
+                .then(function (response) {
+                    console.log(response)
+
+
+                    
+                })
+        })
+
 }
