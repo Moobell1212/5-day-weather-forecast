@@ -55,12 +55,13 @@ function getWeather() {
             })
                 .then(function (response) {
                     console.log(response);
+                    $('#today').addClass("border border-dark rounded")
 
 
 
 
                     // put onto page
-                    var date = moment().format("Do MMMM YYYY");
+                    var date = moment().format("DD/MM/YYYY");
                     $('#today').append($('<h1>').text(city + ": " + date))
                     // The date
                     // An icon representation of weather conditions
