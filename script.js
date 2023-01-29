@@ -1,5 +1,4 @@
 let recentCities = [];
-// console.log(recentCities)
 
 $("#search-button").on("click", function (event) {
     event.preventDefault();
@@ -25,7 +24,6 @@ function createPastChoices() {
     $("#history").append($('<h4>').text("Recent searches:").css('margin-top', 10));
     // gets the array of past searched cities from local storage
     var pastCities = JSON.parse(localStorage.getItem("pastCities"));
-    // console.log(pastCities);
     // buttons added to page for every past city searched
     for (let i = 0; i < pastCities.length; i++) {
         var cityButton = $('<button>').text(pastCities[i]).css('width', 290).css('margin-top', 5).css('border-radius', 7).css('height', 40);
@@ -35,7 +33,7 @@ function createPastChoices() {
 
 function getWeather() {
     var city = $("#search-input").val();
-    var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=39aa227f0467d72e549c51c77a84fa68";
+    var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&cnt=3&appid=39aa227f0467d72e549c51c77a84fa68";
     $.ajax({
         url: queryURL,
         method: "GET"
@@ -53,10 +51,14 @@ function getWeather() {
             $('#today').append($('<h1>').text(city + ": " + date + icon));
             // add the current temperature
             $('#today').append($('<h4>').text("Temperature: " + (response.list[0].main.temp - 273.15).toFixed() + "°C"));
+            $('#today').append($('<h4>').text("Feels like: " + (response.list[0].main["feels_like"] - 273.15).toFixed() + "°C"));
             // add the current humidity
             $('#today').append($('<h4>').text("Humidity: " + response.list[0].main.humidity + "%"));
             // add the current wind speed
             $('#today').append($('<h4>').text("Wind speed: " + response.list[0].wind.speed + "KPH"));
+
+
+            // 5 DAY FORECAST
         })
 }
 
