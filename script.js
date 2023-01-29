@@ -47,19 +47,16 @@ function getWeather() {
             var date = moment().format("DD/MM/YYYY");
             // get the current weather icon
             var iconID = response.list[0].weather[0].icon;
-            var icon = $('<img>')
-            icon.src = "http://openweathermap.org/img/wn/" + iconID + ".png"
+            var icon = $('<img>');
+            icon.src = "http://openweathermap.org/img/wn/" + iconID + ".png";
+            // add city name, date, and icon
             $('#today').append($('<h1>').text(city + ": " + date + icon));
-            // $('#today').append($('<h1>').text(city + ": " + date));
             // add the current temperature
             $('#today').append($('<h4>').text("Temperature: " + (response.list[0].main.temp - 273.15).toFixed() + "°C"));
             // add the current humidity
             $('#today').append($('<h4>').text("Humidity: " + response.list[0].main.humidity + "%"));
-            // The wind speed
-
-
-            // add city name
-
+            // add the current wind speed
+            $('#today').append($('<h4>').text("Wind speed: " + response.list[0].wind.speed + "KPH"));
         })
 }
 
