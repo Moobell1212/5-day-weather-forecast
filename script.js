@@ -6,7 +6,7 @@ $("#search-button").on("click", function (event) {
     // cityinput value
     var city = $("#search-input").val();
     // push cityinput to the array only if it is not already there
-    if (recentCities.indexOf(city) === -1){
+    if (recentCities.indexOf(city) === -1) {
         recentCities.push(city);
     }
     // add new recentCities array to local storage
@@ -28,7 +28,7 @@ function createPastChoices() {
     // console.log(pastCities);
     // buttons added to page for every past city searched
     for (let i = 0; i < pastCities.length; i++) {
-        var cityButton = $('<button>').text(pastCities[i]).css('width', 290).css('margin-top', 5).css('border-radius', 7);
+        var cityButton = $('<button>').text(pastCities[i]).css('width', 290).css('margin-top', 5).css('border-radius', 7).css('height', 40);
         $("#history").append(cityButton)
     }
 }
@@ -43,15 +43,18 @@ function getWeather() {
         .then(function (response) {
             console.log(response);
             $('#today').addClass("border border-dark rounded");
-            // put onto page the date
+            // get the current date
             var date = moment().format("DD/MM/YYYY");
-            $('#today').append($('<h1>').text(city + ": " + date))
-            // An icon representation of weather conditions
-            // The temperature
-            var temp = response.list[0].main.temp - 273.15;
-            console.log(temp)
-            $('#today').append($('<h4>').text("Temperature: " + temp.toFixed() + "°C"))
-            // The humidity
+            // get the current weather icon
+            var iconID = response.list[0].weather[0].icon;
+            var icon = $('<img>')
+            icon.src = "http://openweathermap.org/img/wn/" + iconID + ".png"
+            $('#today').append($('<h1>').text(city + ": " + date + icon));
+            // $('#today').append($('<h1>').text(city + ": " + date));
+            // add the current temperature
+            $('#today').append($('<h4>').text("Temperature: " + (response.list[0].main.temp - 273.15).toFixed() + "°C"));
+            // add the current humidity
+            $('#today').append($('<h4>').text("Humidity: " + response.list[0].main.humidity + "%"));
             // The wind speed
 
 
@@ -59,4 +62,4 @@ function getWeather() {
 
         })
 }
-        
+
