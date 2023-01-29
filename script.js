@@ -5,8 +5,10 @@ $("#search-button").on("click", function (event) {
     event.preventDefault();
     // cityinput value
     var city = $("#search-input").val();
-    // push cityinput to the array
-    recentCities.push(city);
+    // push cityinput to the array only if it is not already there
+    if (recentCities.indexOf(city) === -1){
+        recentCities.push(city);
+    }
     // add new recentCities array to local storage
     localStorage.setItem("pastCities", JSON.stringify(recentCities));
     // clear the searchbar
@@ -32,47 +34,29 @@ function createPastChoices() {
 }
 
 function getWeather() {
-    var APIKey = "39aa227f0467d72e549c51c77a84fa68";
     var city = $("#search-input").val();
-    var geoInfo = "http://api.openweathermap.org/geo/1.0/direct?q=" + city + "&limit=5&appid=" + APIKey;
+    var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=39aa227f0467d72e549c51c77a84fa68";
     $.ajax({
-        url: geoInfo,
+        url: queryURL,
         method: "GET"
     })
         .then(function (response) {
-            console.log(response)
-            var cityLat = response[0].lat;
-            // console.log(cityLat)
-            var cityLong = response[0].lon;
-            // console.log(cityLong)
-            // console.log(cityLat);
-            // console.log(cityLong);
-            var queryURL = "http://api.openweathermap.org/geo/1.0/reverse?lat=" + cityLat + "&lon=" + cityLong + "&limit=5&appid=" + APIKey;
-            // console.log(queryURL)
-            $.ajax({
-                url: queryURL,
-                method: "GET"
-            })
-                .then(function (response) {
-                    console.log(response);
-                    $('#today').addClass("border border-dark rounded")
+            console.log(response);
+            $('#today').addClass("border border-dark rounded");
+            // put onto page the date
+            var date = moment().format("DD/MM/YYYY");
+            $('#today').append($('<h1>').text(city + ": " + date))
+            // An icon representation of weather conditions
+            // The temperature
+            var temp = response.list[0].main.temp - 273.15;
+            console.log(temp)
+            $('#today').append($('<h4>').text("Temperature: " + temp.toFixed() + "°C"))
+            // The humidity
+            // The wind speed
 
 
+            // add city name
 
-
-                    // put onto page
-                    var date = moment().format("DD/MM/YYYY");
-                    $('#today').append($('<h1>').text(city + ": " + date))
-                    // The date
-                    // An icon representation of weather conditions
-                    // The temperature
-                    // The humidity
-                    // The wind speed
-                    
-
-                    // add city name
-
-                })
         })
-        
 }
+        
