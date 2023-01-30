@@ -13,7 +13,7 @@ $("#search-button").on("click", function (event) {
     // clear the searchbar
     $("#history").empty();
     createPastChoices();
-    getWeather();
+    getWeather(city);
     $("#search-input").val('');
     $("#today").empty();
     $('#forecast-title').empty();
@@ -28,13 +28,26 @@ function createPastChoices() {
     var pastCities = JSON.parse(localStorage.getItem("pastCities"));
     // buttons added to page for every past city searched
     for (let i = 0; i < pastCities.length; i++) {
-        var cityButton = $('<button>').text(pastCities[i]).addClass("btn-info").css({'width': '100%', 'margin-top': 5, 'border-radius': 7, 'height': 40});
+        var cityButton = $('<button>').text(pastCities[i]).attr('id', pastCities[i]).addClass("btn-info cities").css({'width': '100%', 'margin-top': 5, 'border-radius': 7, 'height': 40});
         $("#history").append(cityButton)
+        cityButton.on("click", function(){
+            // console.log(this)
+            var buttonCity = this.id;
+            // console.log(buttonCity);
+            getWeather(buttonCity);
+            $("#today").empty();
+            $('#forecast-title').empty();
+            $('#forecast').empty();
+        })
     }
 }
 
-function getWeather() {
-    var city = $("#search-input").val();
+// $("button").on("click", function () {
+//         console.log("yay")
+// })
+
+function getWeather(thisSearch) {
+    var city = thisSearch;
     var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=39aa227f0467d72e549c51c77a84fa68";
     $.ajax({
         url: queryURL,
@@ -71,7 +84,7 @@ function getWeather() {
             }
             $("#forecast-title").append($('<h2>').text("5-day forecast:"));
             forecastArray.forEach(forecast => {
-                console.log(forecast);
+                // console.log(forecast);
                 // forecast card dates
                 var dates = moment.unix(forecast.dt).format("DD/MM/YYYY");
                 // add forecast card
