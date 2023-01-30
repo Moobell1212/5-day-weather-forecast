@@ -73,14 +73,20 @@ function getWeather() {
                 // forecast card dates
                 var dates = moment.unix(forecast.dt).format("DD/MM/YYYY");
                 // add forecast card
-                var card = $('<div>').addClass("card mb-3").css("min-width", 150);
-                var cardTitle = $('<h4>').addClass("card-title text-center").text(dates);
+                var card = $('<div>').addClass("card mb-3 p-2");
+                // card dates 
+                var cardDates = $('<h4>').addClass("card-title").text(dates);
+                // forecast icons 
                 var cardIconID = forecast.weather[0].icon;
                 var icon = $('<img>').attr("src", "https://openweathermap.org/img/wn/" + cardIconID + ".png").css({"height": 50, "width": 50});
-                $("#forecast").append(card.append(cardTitle, icon));
+                // forecast temperature
+                var cardTemp = $('<h5>').text("Temperature: " + (forecast.main.temp - 273.15).toFixed() + "°C");
+
+
+
+                $("#forecast").append(card.append(cardDates, icon, cardTemp));
             })
-            // The date
-            // An icon representation of weather conditions
+
             // The temperature
             // Wind speed
             // The humidity
