@@ -39,7 +39,7 @@ function getWeather() {
         method: "GET"
     })
         .then(function (response) {
-            console.log(response);
+            // console.log(response);
             $('#today').addClass("border border-dark rounded");
             // get the current date
             var date = moment().format("DD/MM/YYYY");
@@ -48,7 +48,7 @@ function getWeather() {
             var icon = $('<img>');
             icon.attr("src", "https://openweathermap.org/img/wn/" + iconID + ".png");
             // add city name and date
-            var cityH1 = $('<h1>').text(city + " ("+ date + ") ");
+            var cityH1 = $('<h1>').text(city + " (" + date + ") ");
             $('#today').append(cityH1.append(icon));
             // add the current temperature
             $('#today').append($('<h4>').text("Temperature: " + (response.list[0].main.temp - 273.15).toFixed() + "°C"));
@@ -59,10 +59,16 @@ function getWeather() {
             $('#today').append($('<h4>').text("Wind speed: " + response.list[0].wind.speed + " KPH"));
             // 5 DAY FORECAST
             var forecastArray = [];
-            for (let i=0; i<response.list.length; i++){
-
+            // create an array of data at 12:00 for each day
+            for (let i = 0; i < response.list.length; i++) {
+                var targetTimes = response.list[i].dt_txt.split(" ").pop();
+                // console.log(targetTimes);
+                if (targetTimes === "12:00:00") {
+                    forecastArray.push(response.list[i]);
+                }
+                console.log(forecastArray);
             }
-            // The date
+            // // The date
             // An icon representation of weather conditions
             // The temperature
             // Wind speed
