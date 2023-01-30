@@ -26,7 +26,7 @@ function createPastChoices() {
     var pastCities = JSON.parse(localStorage.getItem("pastCities"));
     // buttons added to page for every past city searched
     for (let i = 0; i < pastCities.length; i++) {
-        var cityButton = $('<button>').text(pastCities[i]).css('width', '15em').css('margin-top', 5).css('border-radius', 7).css('height', 40);
+        var cityButton = $('<button>').text(pastCities[i]).css('width', '15em').css({'margin-top': 5, 'border-radius': 7, 'height': 40});
         $("#history").append(cityButton)
     }
 }
@@ -45,8 +45,7 @@ function getWeather() {
             var date = moment().format("DD/MM/YYYY");
             // get the current weather icon
             var iconID = response.list[0].weather[0].icon;
-            var icon = $('<img>');
-            icon.attr("src", "https://openweathermap.org/img/wn/" + iconID + ".png");
+            var icon = $('<img>').attr("src", "https://openweathermap.org/img/wn/" + iconID + ".png");
             // add city name and date
             var cityH1 = $('<h1>').text(city + " (" + date + ") ");
             $('#today').append(cityH1.append(icon));
@@ -70,15 +69,17 @@ function getWeather() {
             }
             $("#forecast-title").append($('<h2>').text("5-day forecast:"));
             forecastArray.forEach(forecast => {
-                console.log(forecast) ;
+                console.log(forecast);
+                // forecast card dates
                 var dates = moment.unix(forecast.dt).format("DD/MM/YYYY");
                 // add forecast card
-                var card = $('<div>').addClass("card").css("min-width", 150);
+                var card = $('<div>').addClass("card mb-3").css("min-width", 150);
                 var cardTitle = $('<h4>').addClass("card-title text-center").text(dates);
-                cardTitle.append();
-                $("#forecast").append(card.append(cardTitle));
+                var cardIconID = forecast.weather[0].icon;
+                var icon = $('<img>').attr("src", "https://openweathermap.org/img/wn/" + cardIconID + ".png").css({"height": 50, "width": 50});
+                $("#forecast").append(card.append(cardTitle, icon));
             })
-            // // The date
+            // The date
             // An icon representation of weather conditions
             // The temperature
             // Wind speed
