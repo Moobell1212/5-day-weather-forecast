@@ -33,7 +33,7 @@ function createPastChoices() {
 
 function getWeather() {
     var city = $("#search-input").val();
-    var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&cnt=3&appid=39aa227f0467d72e549c51c77a84fa68";
+    var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&cnt=10&appid=39aa227f0467d72e549c51c77a84fa68";
     $.ajax({
         url: queryURL,
         method: "GET"
@@ -46,19 +46,28 @@ function getWeather() {
             // get the current weather icon
             var iconID = response.list[0].weather[0].icon;
             var icon = $('<img>');
-            icon.src = "http://openweathermap.org/img/wn/" + iconID + ".png";
+            icon.attr("src", "https://openweathermap.org/img/wn/" + iconID + ".png")
+            // icon.src = "https://openweathermap.org/img/wn/" + iconID + ".png";
+            // console.log(icon.src)
             // add city name, date, and icon
-            $('#today').append($('<h1>').text(city + ": " + date + icon));
+            var cityH1 = $('<h1>').text(city)
+            $('#today').append(cityH1.append(icon), date)
+            //  + ": " + date + " " + icon));
             // add the current temperature
             $('#today').append($('<h4>').text("Temperature: " + (response.list[0].main.temp - 273.15).toFixed() + "°C"));
             $('#today').append($('<h4>').text("Feels like: " + (response.list[0].main["feels_like"] - 273.15).toFixed() + "°C"));
             // add the current humidity
             $('#today').append($('<h4>').text("Humidity: " + response.list[0].main.humidity + "%"));
             // add the current wind speed
-            $('#today').append($('<h4>').text("Wind speed: " + response.list[0].wind.speed + "KPH"));
+            $('#today').append($('<h4>').text("Wind speed: " + response.list[0].wind.speed + " KPH"));
 
 
             // 5 DAY FORECAST
+            // The date
+            // An icon representation of weather conditions
+            // The temperature
+            // Wind speed
+            // The humidity
         })
 }
 
