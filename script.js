@@ -66,8 +66,18 @@ function getWeather() {
                 if (targetTimes === "12:00:00") {
                     forecastArray.push(response.list[i]);
                 }
-                console.log(forecastArray);
+                // console.log(forecastArray);
             }
+            $("#forecast-title").append($('<h2>').text("5-day forecast:"));
+            forecastArray.forEach(forecast => {
+                console.log(forecast) ;
+                var dates = moment.unix(forecast.dt).format("DD/MM/YYYY");
+                // add forecast card
+                var card = $('<div>').addClass("card").css("min-width", 150);
+                var cardTitle = $('<h4>').addClass("card-title text-center").text(dates);
+                cardTitle.append();
+                $("#forecast").append(card.append(cardTitle));
+            })
             // // The date
             // An icon representation of weather conditions
             // The temperature
