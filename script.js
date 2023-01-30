@@ -46,13 +46,10 @@ function getWeather() {
             // get the current weather icon
             var iconID = response.list[0].weather[0].icon;
             var icon = $('<img>');
-            icon.attr("src", "https://openweathermap.org/img/wn/" + iconID + ".png")
-            // icon.src = "https://openweathermap.org/img/wn/" + iconID + ".png";
-            // console.log(icon.src)
+            icon.attr("src", "https://openweathermap.org/img/wn/" + iconID + ".png");
             // add city name, date, and icon
-            var cityH1 = $('<h1>').text(city)
-            $('#today').append(cityH1.append(icon), date)
-            //  + ": " + date + " " + icon));
+            var cityH1 = $('<h1>').text(city + " ("+ date + ") ");
+            $('#today').append(cityH1.append(icon));
             // add the current temperature
             $('#today').append($('<h4>').text("Temperature: " + (response.list[0].main.temp - 273.15).toFixed() + "°C"));
             $('#today').append($('<h4>').text("Feels like: " + (response.list[0].main["feels_like"] - 273.15).toFixed() + "°C"));
