@@ -16,6 +16,8 @@ $("#search-button").on("click", function (event) {
     getWeather();
     $("#search-input").val('');
     $("#today").empty();
+    $('#forecast-title').empty();
+    $('#forecast').empty();
 })
 
 // function for adding past searched cities
@@ -83,12 +85,11 @@ function getWeather() {
                 var cardTemp = $('<h6>').text("Temperature: " + (forecast.main.temp - 273.15).toFixed() + "°C");
                 // forecast wind speed
                 var cardWind = $('<h6>').text("Wind Speed: " + forecast.wind.speed + " KPH")
-
-                $("#forecast").append(card.append(cardDates, icon, cardTemp, cardWind));
+                // forecast humidity
+                var cardHumidity = $('<h6>').text("Humidity: " + forecast.main.humidity + "%");
+                // build card
+                $("#forecast").append(card.append(cardDates, icon, cardTemp, cardWind, cardHumidity));
             })
-
-            
-            // The humidity
         })
 }
 
