@@ -28,9 +28,9 @@ function createPastChoices() {
     var pastCities = JSON.parse(localStorage.getItem("pastCities"));
     // buttons added to page for every past city searched
     for (let i = 0; i < pastCities.length; i++) {
-        var cityButton = $('<button>').text(pastCities[i]).attr('id', pastCities[i]).addClass("btn-info cities").css({'width': '100%', 'margin-top': 5, 'border-radius': 7, 'height': 40});
+        var cityButton = $('<button>').text(pastCities[i]).attr('id', pastCities[i]).addClass("btn-info cities").css({ 'width': '100%', 'margin-top': 5, 'border-radius': 7, 'height': 40 });
         $("#history").append(cityButton)
-        cityButton.on("click", function(){
+        cityButton.on("click", function () {
             // console.log(this)
             var buttonCity = this.id;
             // console.log(buttonCity);
@@ -42,10 +42,6 @@ function createPastChoices() {
     }
 }
 
-// $("button").on("click", function () {
-//         console.log("yay")
-// })
-
 function getWeather(thisSearch) {
     var city = thisSearch;
     var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=39aa227f0467d72e549c51c77a84fa68";
@@ -54,13 +50,13 @@ function getWeather(thisSearch) {
         method: "GET"
     })
         .then(function (response) {
-            // console.log(response);
+            console.log(response);
             $('#today').addClass("border border-dark rounded");
             // get the current date
             var date = moment().format("DD/MM/YYYY");
             // get the current weather icon
             var iconID = response.list[0].weather[0].icon;
-            var icon = $('<img>').attr("src", "https://openweathermap.org/img/wn/" + iconID + ".png").css({"height": 60, "width": 60});
+            var icon = $('<img>').attr("src", "https://openweathermap.org/img/wn/" + iconID + ".png").css({ "height": 60, "width": 60 });
             // add city name and date
             var cityH1 = $('<h1>').text(city + " (" + date + ") ");
             $('#today').append(cityH1.append(icon));
@@ -75,10 +71,19 @@ function getWeather(thisSearch) {
             var forecastArray = [];
             // create an array of data at 12:00 for each day
             for (let i = 0; i < response.list.length; i++) {
+                // var countryTimeZone = response.city.timezone;
                 var targetTimes = response.list[i].dt_txt.split(" ").pop();
                 // console.log(targetTimes);
-                if (targetTimes === "12:00:00") {
-                    forecastArray.push(response.list[i]);
+                if (targetTimes === "15:00:00") {
+                    var countryTimeZone = response.city.timezone;
+                    // console.log(countryTimeZone)
+                    var timeOffset = countryTimeZone / 3600;
+                    // console.log("Hours difference is " + timeOffset)
+                    var arrayTimeOffset = (timeOffset / 3).toFixed();
+                    // console.log("Array shift is " + arrayTimeOffset)
+                    var targetArray = [i] - arrayTimeOffset;
+                    // console.log(response.list[targetArray])
+                    forecastArray.push(response.list[targetArray]);
                 }
                 // console.log(forecastArray);
             }
@@ -93,9 +98,9 @@ function getWeather(thisSearch) {
                 var cardDates = $('<h4>').addClass("card-title").text(dates);
                 // forecast icons 
                 var cardIconID = forecast.weather[0].icon;
-                var icon = $('<img>').attr("src", "https://openweathermap.org/img/wn/" + cardIconID + ".png").css({"height": 50, "width": 50});
+                var icon = $('<img>').attr("src", "https://openweathermap.org/img/wn/" + cardIconID + ".png").css({ "height": 50, "width": 50 });
                 // forecast temperature
-                var cardTemp = $('<h6>').text("Temperature: " + (forecast.main.temp - 273.15).toFixed() + "°C");
+                var cardTemp = $('<h6>').text("Temperature: " + forecast.main.temp + "°C");
                 // forecast wind speed
                 var cardWind = $('<h6>').text("Wind Speed: " + forecast.wind.speed + " KPH")
                 // forecast humidity
