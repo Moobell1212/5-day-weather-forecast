@@ -48,7 +48,7 @@ function getWeather(thisSearch) {
         method: "GET"
     })
         .then(function (response) {
-            $('#today').addClass("border border-dark rounded");
+            $('#today').addClass("border border-dark rounded").css("padding", 20);
             // get the current date
             var date = moment().format("DD/MM/YYYY");
             // get the current weather icon
