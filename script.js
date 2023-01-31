@@ -31,9 +31,7 @@ function createPastChoices() {
         var cityButton = $('<button>').text(pastCities[i]).attr('id', pastCities[i]).addClass("btn-info cities").css({ 'width': '100%', 'margin-top': 5, 'border-radius': 7, 'height': 40 });
         $("#history").append(cityButton);
         cityButton.on("click", function () {
-            // console.log(this)
             var buttonCity = this.id;
-            // console.log(buttonCity);
             getWeather(buttonCity);
             $("#today").empty();
             $('#forecast-title').empty();
@@ -50,7 +48,6 @@ function getWeather(thisSearch) {
         method: "GET"
     })
         .then(function (response) {
-            // console.log(response);
             $('#today').addClass("border border-dark rounded");
             // get the current date
             var date = moment().format("DD/MM/YYYY");
@@ -71,19 +68,13 @@ function getWeather(thisSearch) {
             var forecastArray = [];
             // create an array of data at 12:00 for each day
             for (let i = 0; i < response.list.length; i++) {
-                // var countryTimeZone = response.city.timezone;
                 var targetTimes = response.list[i].dt_txt.split(" ").pop();
-                // console.log(targetTimes);
                 if (targetTimes === "15:00:00") {
                     // account for time zone difference in forecast
                     var countryTimeZone = response.city.timezone;
-                    // console.log(countryTimeZone)
                     var timeOffset = countryTimeZone / 3600;
-                    // console.log("Hours difference is " + timeOffset)
                     var arrayTimeOffset = (timeOffset / 3).toFixed();
-                    // console.log("Array shift is " + arrayTimeOffset)
                     var targetArray = [i] - arrayTimeOffset;
-                    // console.log(response.list[targetArray])
                     forecastArray.push(response.list[targetArray]);
                 }
                 // console.log(forecastArray);
