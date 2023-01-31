@@ -2,10 +2,6 @@
 
 ## Description
 
-This website provides current weather and a 5 day forecast for cities around the world using the API from Open Weather Map (https://openweathermap.org/). This site will also save recent user searches to local storage to show as buttons on the page. When clicked these buttons show the weather for that city. The current weather will display the current date, the weather icon, temperature, the 'feels like' temperature, the humidity, and the wind speed. The forecast section will disply the weather icons for each date, including the temperature, wind speed, and humidity.
-
-## Description
-
 This website provides the current weather and a 5 day forecast for cities around the world using the API from Open Weather Map (https://openweathermap.org/). This site will also save recent user searches to local storage and added as buttons on the page. When clicked these buttons show the current weather and forecast for that city. The current weather will display the current date, the weather icon, temperature, the 'feels like' temperature, the humidity, and the wind speed. The forecast section will disply the weather icons for each date, the temperature,the wind speed, and the humidity.
 
 ## Usage
