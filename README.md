@@ -22,7 +22,7 @@ With future searches the above will happen, with the buttons adding up in the re
 
 <img src="./images/multiplesearches.png" style="margin-top: 20px; margin-bottom:30px">
 
-Deployed site:
+Deployed site: https://moobell1212.github.io/5-day-weather-forecast/
 
 ## License
 
