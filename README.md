@@ -1,8 +1,18 @@
 # 5-day-weather-forecast
 
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+
 ## Description
 
 This website provides the current weather and a 5 day forecast for cities around the world using the API from Open Weather Map (https://openweathermap.org/). This site will also save recent user searches to local storage and added as buttons on the page. When clicked these buttons show the current weather and forecast for that city. The current weather will display the current date, the weather icon, temperature, the 'feels like' temperature, the humidity, and the wind speed. The forecast section will disply the weather icons for each date, the temperature,the wind speed, and the humidity.
+
+## Table of contents
+- [Usage](#usage)
+- [Installation](#installation)
+- [Contributing](#contributing)
+- [License](#license)
+- [Tests](#tests)
+- [Questions](#questions)
 
 ## Usage
 
@@ -24,6 +34,27 @@ With future searches the above will happen, with the buttons adding up in the re
 
 Deployed site: https://moobell1212.github.io/5-day-weather-forecast/
 
-## License
+## Installation
 
-MIT
+To install, on the terminal type:
+```
+git clone https://github.com/Moobell1212/5-day-weather-forecast.git
+```
+## Contributing
+If there are any suggestions for improoving this README generator:
+<ol>
+<li>Fork the project</li>
+<li>Create your branch</li>
+<li>Commit your changes</li>
+<li>Push your code to the branch</li>
+<li>Create a pull request in the repository</li>
+</ol>
+
+## License
+This project is licensed under the MIT license. For more information visit [https://opensource.org/licenses/MIT](https://opensource.org/licenses/MIT).
+
+## Tests
+None
+
+## Questions
+Contact the developer with any questions at the GitHub repository: [Moobell1212](https://github.com/Moobell1212).
