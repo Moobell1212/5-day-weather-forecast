@@ -1,4 +1,17 @@
 # 5-day-weather-forecast
+<div align="center">
+</br>
+
+[![Contributors](https://img.shields.io/github/contributors/Moobell1212/Elspeth-Meakin-s-react-portfolio?style=for-the-badge)](https://github.com/fl4viooliveira/react-portfolio/graphs/contributors)
+[![Forks](https://img.shields.io/github/forks/Moobell1212/Elspeth-Meakin-s-react-portfolio?style=for-the-badge)](https://github.com/fl4viooliveira/react-portfolio/forks)
+[![Stargazers](https://img.shields.io/github/stars/Moobell1212/Elspeth-Meakin-s-react-portfolio?style=for-the-badge)](https://github.com/fl4viooliveira/FrontEnders/stargazers)
+[![Issues](https://img.shields.io/github/issues/Moobell1212/Elspeth-Meakin-s-react-portfolio?style=for-the-badge)](https://github.com/fl4viooliveira/FrontEnders/issues)
+
+</br>
+
+[![My Skills](https://skillicons.dev/icons?i=js,html,css,react,bootstrap)](https://skillicons.dev)
+</div>
+</br>
 
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
