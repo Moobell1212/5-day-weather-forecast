@@ -2,14 +2,14 @@
 <div align="center">
 </br>
 
-[![Contributors](https://img.shields.io/github/contributors/Moobell1212/Elspeth-Meakin-s-react-portfolio?style=for-the-badge)](https://github.com//Moobell1212/Elspeth-Meakin-s-react-portfolio/graphs/contributors)
-[![Forks](https://img.shields.io/github/forks/Moobell1212/Elspeth-Meakin-s-react-portfolio?style=for-the-badge)](https://github.com//Moobell1212/Elspeth-Meakin-s-react-portfolio/forks)
-[![Stargazers](https://img.shields.io/github/stars/Moobell1212/Elspeth-Meakin-s-react-portfolio?style=for-the-badge)](https://github.com//Moobell1212/Elspeth-Meakin-s-react-portfolio/stargazers)
-[![Issues](https://img.shields.io/github/issues/Moobell1212/Elspeth-Meakin-s-react-portfolio?style=for-the-badge)](https://github.com//Moobell1212/Elspeth-Meakin-s-react-portfolio/issues)
+[![Contributors](https://img.shields.io/github/contributors/Moobell1212/5-day-weather-forecast?style=for-the-badge)](https://github.com//Moobell1212/5-day-weather-forecast/graphs/contributors)
+[![Forks](https://img.shields.io/github/forks/Moobell1212/5-day-weather-forecast?style=for-the-badge)](https://github.com//Moobell1212/5-day-weather-forecast/forks)
+[![Stargazers](https://img.shields.io/github/stars/Moobell1212/5-day-weather-forecast?style=for-the-badge)](https://github.com//Moobell1212/5-day-weather-forecast/stargazers)
+[![Issues](https://img.shields.io/github/issues/Moobell1212/5-day-weather-forecast?style=for-the-badge)](https://github.com//Moobell1212/5-day-weather-forecast/issues)
 
 </br>
 
-[![My Skills](https://skillicons.dev/icons?i=js,html,css,react,bootstrap)](https://skillicons.dev)
+[![My Skills](https://skillicons.dev/icons?i=js,html,css,bootstrap)](https://skillicons.dev)
 </div>
 </br>
 
