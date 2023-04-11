@@ -1,5 +1,5 @@
 # 5-day-weather-forecast
-<div align="center">
+<div align="center" id="top>
 </br>
 
 [![Contributors](https://img.shields.io/github/contributors/Moobell1212/5-day-weather-forecast?style=for-the-badge)](https://github.com//Moobell1212/5-day-weather-forecast/graphs/contributors)
@@ -47,12 +47,17 @@ With future searches the above will happen, with the buttons adding up in the re
 
 Deployed site: https://moobell1212.github.io/5-day-weather-forecast/
 
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 ## Installation
 
 To install, on the terminal type:
 ```
 git clone https://github.com/Moobell1212/5-day-weather-forecast.git
 ```
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 ## Contributing
 If there are any suggestions for improoving this README generator:
 <ol>
@@ -63,11 +68,19 @@ If there are any suggestions for improoving this README generator:
 <li>Create a pull request in the repository</li>
 </ol>
 
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 ## License
 This project is licensed under the MIT license. For more information visit [https://opensource.org/licenses/MIT](https://opensource.org/licenses/MIT).
+
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Tests
 None
 
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 ## Questions
 Contact the developer with any questions at the GitHub repository: [Moobell1212](https://github.com/Moobell1212).
+
+<p align="right">(<a href="#top">back to top</a>)</p>
