@@ -59,7 +59,7 @@ git clone https://github.com/Moobell1212/5-day-weather-forecast.git
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Contributing
-If there are any suggestions for improoving this README generator:
+If there are any suggestions for improoving this weather forecast project:
 <ol>
 <li>Fork the project</li>
 <li>Create your branch</li>
